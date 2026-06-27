@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'BirdsOfParadise';
+  src: url('/fonts/Birds_of_Paradise.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HelveticaNeue';
+  src: url('/fonts/HelveticaNeueMedium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HelveticaNeue';
+  src: url('/fonts/HelveticaNeueBold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --color-background: #1E140F;
+  --color-surface: #3D281B;
+  --color-heading: #F2E6CC;
+  --color-body: #D9CDBC;
+  --color-accent: #C75D2C;
+  --color-hairline: #6B4A33;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-body font-sans font-medium antialiased;
+  }
+
+  h1, h2, h3 {
+    @apply text-heading;
+  }
+
+  a {
+    @apply text-accent transition-colors duration-200;
+  }
+
+  a:hover {
+    @apply text-heading;
+  }
+}
+
+@layer utilities {
+  .dot-grid-bg {
+    background-image: radial-gradient(
+      circle,
+      rgba(107, 74, 51, 0.18) 1px,
+      transparent 1px
+    );
+    background-size: 24px 24px;
+  }
+
+  .dot-grid-perspective {
+    background-image: radial-gradient(
+      circle,
+      rgba(107, 74, 51, 0.12) 1px,
+      transparent 1px
+    );
+    background-size: 20px 20px;
+    transform: perspective(800px) rotateX(60deg);
+    transform-origin: center top;
+  }
+
+  .fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes wordmarkSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .wordmark-animate-shies {
+    animation: wordmarkSlideIn 0.5s ease-out forwards;
+  }
+
+  .wordmark-animate-portfolio {
+    animation: wordmarkSlideIn 0.5s ease-out 0.15s forwards;
+    opacity: 0;
+  }
+}
